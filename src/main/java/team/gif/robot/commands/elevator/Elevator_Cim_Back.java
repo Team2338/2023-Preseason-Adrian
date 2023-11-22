@@ -1,14 +1,13 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.elevator;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import team.gif.robot.Robot;
 
-public class Collector_Out extends CommandBase {
+public class Elevator_Cim_Back extends CommandBase {
 
-    public Collector_Out() {
+    public Elevator_Cim_Back() {
         super();
-        addRequirements(Robot.collector);
-        //addRequirements(Robot.climber); // uncomment
+        addRequirements(Robot.elevator);
     }
 
     // Called when the command is initially scheduled.
@@ -18,7 +17,7 @@ public class Collector_Out extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.collector.Turn(-0.2);
+        Robot.elevator.Motor_Turn(-0.2);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -30,6 +29,6 @@ public class Collector_Out extends CommandBase {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.collector.Turn(0.0);
+        Robot.elevator.Motor_Turn(0);
     }
-}
+    }

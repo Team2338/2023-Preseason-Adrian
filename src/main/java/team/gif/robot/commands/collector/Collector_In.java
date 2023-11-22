@@ -1,14 +1,14 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import team.gif.robot.OI;
 import team.gif.robot.Robot;
 
-public class Tank_Drive extends CommandBase {
+public class Collector_In extends CommandBase {
 
-    public Tank_Drive() {
+    public Collector_In() {
         super();
-        addRequirements(Robot.drivetrain);//addRequirements(Robot.climber); // uncomment
+        addRequirements(Robot.collector);
+        //addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -18,7 +18,7 @@ public class Tank_Drive extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.drivetrain.Drive(OI.driver.getLeftY(),OI.driver.getRightY());
+        Robot.collector.Turn(0.2);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -29,5 +29,7 @@ public class Tank_Drive extends CommandBase {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
+    public void end(boolean interrupted) {
+        Robot.collector.Turn(0.0);
+    }
 }

@@ -2,10 +2,10 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.Collector_In;
-import team.gif.robot.commands.Collector_Out;
-import team.gif.robot.commands.Elevator_Cim;
-import team.gif.robot.commands.Elevator_Cim_Back;
+import team.gif.robot.commands.collector.Collector_In;
+import team.gif.robot.commands.collector.Collector_Out;
+import team.gif.robot.commands.elevator.Elevator_Cim;
+import team.gif.robot.commands.elevator.Elevator_Cim_Back;
 
 public class OI {
     /*

@@ -1,11 +1,11 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.collector;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import team.gif.robot.Robot;
 
-public class Collector_In extends CommandBase {
+public class Collector_Out extends CommandBase {
 
-    public Collector_In() {
+    public Collector_Out() {
         super();
         addRequirements(Robot.collector);
         //addRequirements(Robot.climber); // uncomment
@@ -18,7 +18,7 @@ public class Collector_In extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.collector.Turn(0.2);
+        Robot.collector.Turn(-0.2);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
