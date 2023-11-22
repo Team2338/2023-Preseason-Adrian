@@ -2,6 +2,10 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import team.gif.robot.commands.Collector_In;
+import team.gif.robot.commands.Collector_Out;
+import team.gif.robot.commands.Elevator_Cim;
+import team.gif.robot.commands.Elevator_Cim_Back;
 
 public class OI {
     /*
@@ -13,7 +17,7 @@ public class OI {
      * public final Trigger dA = driver.a();
      */
 
-    public final CommandXboxController driver = new CommandXboxController(RobotMap.DRIVER_CONTROLLER_ID);
+    public static final CommandXboxController driver = new CommandXboxController(RobotMap.DRIVER_CONTROLLER_ID);
     public final CommandXboxController aux = new CommandXboxController(RobotMap.AUX_CONTROLLER_ID);
     public final CommandXboxController test = new CommandXboxController(RobotMap.TEST_CONTROLLER_ID);
 
@@ -69,6 +73,10 @@ public class OI {
     public final Trigger tDPadLeft = test.povLeft();
 
     public OI() {
+        dDPadUp.whileTrue(new Elevator_Cim());
+        dDPadDown.whileTrue(new Elevator_Cim_Back());
+        tLTrigger.whileTrue(new Collector_In());
+        tRTrigger.whileTrue(new Collector_Out());
         /*
          *
          * Create controller actions here

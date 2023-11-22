@@ -5,8 +5,15 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.Tank_Drive;
+import team.gif.robot.subsystems.Collector;
+import team.gif.robot.subsystems.DriveTrain;
+import team.gif.robot.subsystems.Elevator;
+
+import java.sql.Time;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -19,6 +26,9 @@ public class Robot extends TimedRobot {
   private RobotContainer robotContainer;
   public static OI oi;
 
+  public static Elevator elevator;
+  public static Collector collector;
+  public static DriveTrain drivetrain;
 
   public static UiSmartDashboard uiSmartDashboard;
 
@@ -28,6 +38,12 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+
+    elevator = new Elevator();
+    collector = new Collector();
+    drivetrain = new DriveTrain();
+    drivetrain.setDefaultCommand(new Tank_Drive());
+
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
@@ -44,6 +60,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+
     // Runs the Scheduler.  This is responsible for polling buttons, adding newly-scheduled
     // commands, running already-scheduled commands, removing finished or interrupted commands,
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
@@ -51,7 +68,9 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     uiSmartDashboard.updateUI();
-
+    if (Timer.getMatchTime() < 5){
+      drivetrain.Drive(0.5,0.5);
+    }
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

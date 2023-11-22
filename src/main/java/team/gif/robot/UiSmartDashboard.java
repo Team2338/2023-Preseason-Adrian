@@ -18,6 +18,7 @@ public class UiSmartDashboard {
      */
     public UiSmartDashboard() {
         ShuffleboardTab tab = Shuffleboard.getTab("SmartDashboard"); // Gets a reference to the shuffleboard tab
+        tab.addDouble("Encoder_Position",Robot.elevator::Get_Encoder_Position);
     }
 
     /**
