@@ -12,6 +12,7 @@ import team.gif.robot.commands.drivetrain.Tank_Drive;
 import team.gif.robot.subsystems.Collector;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.Elevator;
+import team.gif.robot.subsystems.driver.Pigeon;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -23,7 +24,7 @@ public class Robot extends TimedRobot {
   private static Command autonomousCommand;
   private RobotContainer robotContainer;
   public static OI oi;
-
+  public static Pigeon pigeon;
   public static Elevator elevator;
   public static Collector collector;
   public static DriveTrain drivetrain;
@@ -41,12 +42,14 @@ public class Robot extends TimedRobot {
     collector = new Collector();
     drivetrain = new DriveTrain();
     drivetrain.setDefaultCommand(new Tank_Drive());
-
+    pigeon = new Pigeon(RobotMap.PIGEON_ID);
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
     oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
+
+
   }
 
   /**

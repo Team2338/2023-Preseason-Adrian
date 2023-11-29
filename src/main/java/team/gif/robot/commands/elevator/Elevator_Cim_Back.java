@@ -17,7 +17,7 @@ public class Elevator_Cim_Back extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.elevator.Motor_Turn(-0.2);
+        Robot.elevator.Motor_Turn(-0.3);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
