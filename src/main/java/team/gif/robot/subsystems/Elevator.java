@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
 public class Elevator extends SubsystemBase {
-  public TalonSRX CIM_motor = new TalonSRX(RobotMap.ELEVATOR_CIM);
+  public static TalonSRX CIM_motor = new TalonSRX(RobotMap.ELEVATOR_CIM);
   private final double MAX =13000  ;
   private final double MIN = 3000;
 

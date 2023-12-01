@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.drivetrain.Tank_Drive;
+import team.gif.robot.commands.elevator.Elevator_Cim;
 import team.gif.robot.subsystems.Collector;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.Elevator;
@@ -42,7 +43,7 @@ public class Robot extends TimedRobot {
     collector = new Collector();
     drivetrain = new DriveTrain();
     drivetrain.setDefaultCommand(new Tank_Drive());
-    pigeon = new Pigeon(RobotMap.PIGEON_ID);
+    pigeon = new Pigeon(Elevator.CIM_motor);
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();

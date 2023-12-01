@@ -16,8 +16,7 @@ public class Collector extends SubsystemBase {
 
   /** Creates a new ExampleSubsystem. */
   public Collector() {
-    Bag_Motor.configFactoryDefault();
-    Bag_Motor.setNeutralMode(NeutralMode.Brake);
+
   }
 
   public void Turn(Double Output){
