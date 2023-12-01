@@ -18,7 +18,7 @@ public class Collector_In extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.collector.Turn(0.2);
+        Robot.collector.Turn(0.7);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

@@ -70,7 +70,7 @@ public class Robot extends TimedRobot {
 
     uiSmartDashboard.updateUI();
     if (Timer.getMatchTime() < 5){
-      drivetrain.Drive(0.5,0.5);
+      drivetrain.Tank(0.5,0.5);
     }
   }
 
