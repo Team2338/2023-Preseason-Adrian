@@ -15,12 +15,9 @@ public class Collector extends SubsystemBase {
   public TalonSRX Bag_Motor = new TalonSRX(RobotMap.Collector_Bags);
 
   /** Creates a new ExampleSubsystem. */
-  public Collector() {
-    Bag_Motor.configFactoryDefault();
-    Bag_Motor.setNeutralMode(NeutralMode.Brake);
-  }
+  public Collector() {}
 
-  public void Turn(Double Output){
+  public void Turn(double Output){
     Bag_Motor.set(TalonSRXControlMode.PercentOutput,Output);
   }
 

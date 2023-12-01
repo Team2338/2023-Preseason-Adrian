@@ -1,13 +1,14 @@
-package team.gif.robot.commands.elevator;
+package team.gif.robot.commands.drivetrain;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import team.gif.robot.OI;
 import team.gif.robot.Robot;
 
-public class Elevator_Cim_Back extends CommandBase {
+public class TankDrive extends CommandBase {
 
-    public Elevator_Cim_Back() {
+    public TankDrive() {
         super();
-        addRequirements(Robot.elevator);
+        addRequirements(Robot.drivetrain);//addRequirements(Robot.climber); // uncomment
     }
 
     // Called when the command is initially scheduled.
@@ -17,7 +18,7 @@ public class Elevator_Cim_Back extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.elevator.Motor_Turn(-0.2);
+        Robot.drivetrain.tankDrive(OI.driver.getLeftY(),OI.driver.getRightY());
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -28,7 +29,5 @@ public class Elevator_Cim_Back extends CommandBase {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {
-        Robot.elevator.Motor_Turn(0);
-    }
-    }
+    public void end(boolean interrupted) {}
+}

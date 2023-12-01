@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import team.gif.robot.commands.collector.Collector_In;
 import team.gif.robot.commands.collector.Collector_Out;
-import team.gif.robot.commands.elevator.Elevator_Cim;
-import team.gif.robot.commands.elevator.Elevator_Cim_Back;
+import team.gif.robot.commands.elevator.ElevatorUP;
+import team.gif.robot.commands.elevator.ElevatorDOWN;
 
 public class OI {
     /*
@@ -73,10 +73,10 @@ public class OI {
     public final Trigger tDPadLeft = test.povLeft();
 
     public OI() {
-        dDPadUp.whileTrue(new Elevator_Cim());
-        dDPadDown.whileTrue(new Elevator_Cim_Back());
-        tLTrigger.whileTrue(new Collector_In());
-        tRTrigger.whileTrue(new Collector_Out());
+        dDPadUp.whileTrue(new ElevatorUP());
+        dDPadDown.whileTrue(new ElevatorDOWN());
+        dLBump.whileTrue(new Collector_In());
+        dRBump.whileTrue(new Collector_Out());
         /*
          *
          * Create controller actions here

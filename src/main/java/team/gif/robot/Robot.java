@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.drivetrain.Tank_Drive;
+import team.gif.robot.commands.drivetrain.ArcadeDrive;
+import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.subsystems.Collector;
 import team.gif.robot.subsystems.DriveTrain;
 import team.gif.robot.subsystems.Elevator;
@@ -40,7 +41,7 @@ public class Robot extends TimedRobot {
     elevator = new Elevator();
     collector = new Collector();
     drivetrain = new DriveTrain();
-    drivetrain.setDefaultCommand(new Tank_Drive());
+    drivetrain.setDefaultCommand((Globals.ArcadeDrive) ? new ArcadeDrive() : new TankDrive());
 
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
@@ -67,7 +68,7 @@ public class Robot extends TimedRobot {
 
     uiSmartDashboard.updateUI();
     if (Timer.getMatchTime() < 5){
-      drivetrain.Drive(0.5,0.5);
+      //drivetrain.Drive(0.5,0.5);
     }
   }
 
