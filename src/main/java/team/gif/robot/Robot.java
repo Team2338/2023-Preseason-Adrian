@@ -25,7 +25,7 @@ public class Robot extends TimedRobot {
   private static Command autonomousCommand;
   private RobotContainer robotContainer;
   public static OI oi;
-  public static Pigeon pigeon;
+  //public static Pigeon pigeon;
   public static Elevator elevator;
   public static Collector collector;
   public static DriveTrain drivetrain;
@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
     collector = new Collector();
     drivetrain = new DriveTrain();
     drivetrain.setDefaultCommand(new Tank_Drive());
-    pigeon = new Pigeon(Elevator.CIM_motor);
+    //pigeon = new Pigeon(Elevator.CIM_motor);
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();

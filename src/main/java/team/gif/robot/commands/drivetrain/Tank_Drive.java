@@ -22,9 +22,9 @@ public class Tank_Drive extends CommandBase {
 
 
         if(Globals.ArcadeDrive){
-            Robot.drivetrain.Arcade(OI.driver.getLeftY(),-OI.driver.getRightY());
+            Robot.drivetrain.Arcade(OI.driver.getRightY(),OI.driver.getLeftX());
         }else{
-            Robot.drivetrain.Tank(OI.driver.getLeftY(),OI.driver.getRightY());
+            Robot.drivetrain.Tank(-OI.driver.getRightY(),OI.driver.getLeftY());
         }
     }
 
