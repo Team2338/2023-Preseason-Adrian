@@ -6,6 +6,7 @@ import team.gif.robot.commands.collector.Collector_In;
 import team.gif.robot.commands.collector.Collector_Out;
 import team.gif.robot.commands.elevator.Elevator_Cim;
 import team.gif.robot.commands.elevator.Elevator_Cim_Back;
+import team.gif.robot.commands.elevator.Set_Zero;
 
 public class OI {
     /*
@@ -75,6 +76,7 @@ public class OI {
     public OI() {
         aDPadUp.whileTrue(new Elevator_Cim());
         aDPadDown.whileTrue(new Elevator_Cim_Back());
+        aA.onTrue(new Set_Zero());
         dLBump.whileTrue(new Collector_In());
         dRBump.whileTrue(new Collector_Out());
         /*
