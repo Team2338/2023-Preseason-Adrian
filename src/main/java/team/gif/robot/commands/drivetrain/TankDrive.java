@@ -18,7 +18,7 @@ public class TankDrive extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.drivetrain.tankDrive(OI.driver.getLeftY(),OI.driver.getRightY());
+        Robot.drivetrain.tankDrive(-OI.driver.getRightY() * 0.8,OI.driver.getLeftY() * 0.8);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

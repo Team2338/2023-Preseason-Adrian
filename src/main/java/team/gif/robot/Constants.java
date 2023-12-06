@@ -13,4 +13,12 @@ package team.gif.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+    public static boolean isArcade = false;
+    public static final class Elevator {
+
+        public static final double ELEVATOR_MAX = 14500;
+
+        public static final double ELEVATOR_MIN = 1500;
+    }
 }

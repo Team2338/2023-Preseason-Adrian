@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.Autos.Drive.Drive;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.subsystems.Collector;
@@ -42,6 +43,8 @@ public class Robot extends TimedRobot {
     collector = new Collector();
     drivetrain = new DriveTrain();
     drivetrain.setDefaultCommand((Globals.ArcadeDrive) ? new ArcadeDrive() : new TankDrive());
+
+    autonomousCommand = new Drive();
 
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.

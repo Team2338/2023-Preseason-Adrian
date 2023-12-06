@@ -1,11 +1,12 @@
-package team.gif.robot.commands.elevator;
+package team.gif.robot.commands.Autos;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class ElevatorDOWN extends CommandBase {
-
-    public ElevatorDOWN() {
+public class CollectorFloor extends CommandBase {
+    double target;
+    public CollectorFloor() {
         super();
         addRequirements(Robot.elevator);
     }
@@ -17,7 +18,7 @@ public class ElevatorDOWN extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.elevator.turnPercent(-0.6);
+        Robot.elevator.moveToPosition(Constants.Elevator.ELEVATOR_MIN);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -25,10 +26,7 @@ public class ElevatorDOWN extends CommandBase {
     public boolean isFinished() {
         return false;
     }
-
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {
-        Robot.elevator.turnPercent(0);
-    }
-    }
+    public void end(boolean interrupted) {}
+}

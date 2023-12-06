@@ -18,7 +18,7 @@ public class ElevatorUP extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.elevator.Motor_Turn(0.5);
+        Robot.elevator.turnPercent(0.5);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -30,7 +30,7 @@ public class ElevatorUP extends CommandBase {
     // Called when the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
-        Robot.elevator.Motor_Turn(0);
+        Robot.elevator.turnPercent(0);
 
     }
 }
