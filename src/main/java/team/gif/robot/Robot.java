@@ -70,9 +70,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     uiSmartDashboard.updateUI();
-    if (Timer.getMatchTime() < 5){
-      drivetrain.Tank(0.5,0.5);
-    }
+
   }
 
   /** This function is called once each time the robot enters Disabled mode. */

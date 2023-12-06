@@ -73,8 +73,8 @@ public class OI {
     public final Trigger tDPadLeft = test.povLeft();
 
     public OI() {
-        dDPadUp.whileTrue(new Elevator_Cim());
-        dDPadDown.whileTrue(new Elevator_Cim_Back());
+        aDPadUp.whileTrue(new Elevator_Cim());
+        aDPadDown.whileTrue(new Elevator_Cim_Back());
         dLBump.whileTrue(new Collector_In());
         dRBump.whileTrue(new Collector_Out());
         /*

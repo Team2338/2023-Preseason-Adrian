@@ -29,7 +29,9 @@ public class Elevator extends SubsystemBase {
   public double Get_Encoder_Position(){
     return CIM_motor.getSelectedSensorPosition();
   }
-
+  public void Set_Zero(){
+    CIM_motor.setSelectedSensorPosition(MIN);
+  }
   public void Motor_Turn(double output) {
 
     double pos = Get_Encoder_Position();
