@@ -14,8 +14,8 @@ import team.gif.robot.RobotMap;
 
 public class Elevator extends SubsystemBase {
   public static TalonSRX CIM_motor = new TalonSRX(RobotMap.ELEVATOR_CIM);
-  private final double MAX =30000  ;
-  private final double MIN = 0;
+  private final double MAX = 17000 ;
+  private final double MIN = 3200;
 
   public Elevator()  {
     CIM_motor.configFactoryDefault();
