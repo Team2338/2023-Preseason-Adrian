@@ -77,8 +77,8 @@ public class OI {
         aDPadUp.whileTrue(new Elevator_Cim());
         aDPadDown.whileTrue(new Elevator_Cim_Back());
         aA.onTrue(new Set_Zero());
-        dLBump.whileTrue(new Collector_In());
-        dRBump.whileTrue(new Collector_Out());
+        aLBump.whileTrue(new Collector_In());
+        aRBump.whileTrue(new Collector_Out());
         /*
          *
          * Create controller actions here
