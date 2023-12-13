@@ -25,6 +25,7 @@ public class Elevator extends SubsystemBase {
     CIM_motor.configSelectedFeedbackSensor(TalonSRXFeedbackDevice.CTRE_MagEncoder_Absolute.toFeedbackDevice());
     CIM_motor.configMotionCruiseVelocity(500*10);
     CIM_motor.configMotionAcceleration(10000);
+    CIM_motor.config_kF(0,0.05);
     CIM_motor.setSelectedSensorPosition(0.0);
   }
 

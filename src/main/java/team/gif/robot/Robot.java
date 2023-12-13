@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import team.gif.robot.commands.Autos.Drive.Drive;
+import team.gif.robot.commands.Autos.Drive.DriveSequence;
+import team.gif.robot.commands.Autos.Drive.TankForTime;
 import team.gif.robot.commands.drivetrain.ArcadeDrive;
 import team.gif.robot.commands.drivetrain.TankDrive;
 import team.gif.robot.subsystems.Collector;
@@ -44,7 +45,7 @@ public class Robot extends TimedRobot {
     drivetrain = new DriveTrain();
     drivetrain.setDefaultCommand((Globals.ArcadeDrive) ? new ArcadeDrive() : new TankDrive());
 
-    autonomousCommand = new Drive();
+    autonomousCommand = new DriveSequence();
 
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
@@ -70,9 +71,6 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     uiSmartDashboard.updateUI();
-    if (Timer.getMatchTime() < 5){
-      //drivetrain.Drive(0.5,0.5);
-    }
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
@@ -84,11 +82,15 @@ public class Robot extends TimedRobot {
 
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+    autonomousCommand.schedule();
+  }
 
   /** This function is called periodically during autonomous. */
   @Override
-  public void autonomousPeriodic() {}
+  public void autonomousPeriodic() {
+    autonomousCommand.schedule();
+  }
 
   @Override
   public void teleopInit() {
