@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import team.gif.robot.commands.Autos.Drive.Forward;
+import team.gif.robot.commands.Autos.PlaceCrate;
 import team.gif.robot.commands.drivetrain.Tank_Drive;
 import team.gif.robot.commands.elevator.Elevator_Cim;
 import team.gif.robot.subsystems.Collector;
@@ -43,6 +45,8 @@ public class Robot extends TimedRobot {
     collector = new Collector();
     drivetrain = new DriveTrain();
     drivetrain.setDefaultCommand(new Tank_Drive());
+
+    autonomousCommand = new Forward(10);
     //pigeon = new Pigeon(Elevator.CIM_motor);
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
@@ -82,7 +86,9 @@ public class Robot extends TimedRobot {
 
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+    autonomousCommand.schedule();
+  }
 
   /** This function is called periodically during autonomous. */
   @Override

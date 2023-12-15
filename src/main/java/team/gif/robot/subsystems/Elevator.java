@@ -28,6 +28,7 @@ public class Elevator extends SubsystemBase {
     CIM_motor.configReverseSoftLimitEnable(true);
     CIM_motor.configForwardSoftLimitEnable(true);
     CIM_motor.setSelectedSensorPosition(0.0);
+    CIM_motor.config_kP(0,0.05);
   }
 
   public double Get_Encoder_Position(){
@@ -41,6 +42,10 @@ public class Elevator extends SubsystemBase {
     double pos = Get_Encoder_Position();
     //if ((MAX < pos && output > 0) || (pos < MIN && output < 0)) output = 0;
     CIM_motor.set(ControlMode.PercentOutput, output);
+  }
+
+  public void goToPosition(double position) {
+    CIM_motor.set(ControlMode.MotionMagic,position);
   }
 
 }

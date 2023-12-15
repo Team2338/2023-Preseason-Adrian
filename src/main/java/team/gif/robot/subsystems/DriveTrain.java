@@ -26,7 +26,7 @@ public class DriveTrain extends SubsystemBase {
     Motor_R.setNeutralMode(NeutralMode.Brake);
 
     // turn off the drive train watchdog - otherwise it outputs unnecessary errors on the console
-    //drive.setSafetyEnabled(false);
+    drive.setSafetyEnabled(false);
 
    // Robot.pigeon.resetPigeonPosition();
   }
