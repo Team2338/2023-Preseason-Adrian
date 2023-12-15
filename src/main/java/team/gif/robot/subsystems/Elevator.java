@@ -23,6 +23,10 @@ public class Elevator extends SubsystemBase {
     CIM_motor.setSensorPhase(true);
     CIM_motor.setInverted(true);
     CIM_motor.configSelectedFeedbackSensor(TalonSRXFeedbackDevice.CTRE_MagEncoder_Absolute.toFeedbackDevice());
+    CIM_motor.configForwardSoftLimitThreshold(MAX);
+    CIM_motor.configReverseSoftLimitThreshold(MIN);
+    CIM_motor.configReverseSoftLimitEnable(true);
+    CIM_motor.configForwardSoftLimitEnable(true);
     CIM_motor.setSelectedSensorPosition(0.0);
   }
 
@@ -35,8 +39,7 @@ public class Elevator extends SubsystemBase {
   public void Motor_Turn(double output) {
 
     double pos = Get_Encoder_Position();
-    System.out.println(pos);
-    if ((MAX < pos && output > 0) || (pos < MIN && output < 0)) output = 0;
+    //if ((MAX < pos && output > 0) || (pos < MIN && output < 0)) output = 0;
     CIM_motor.set(ControlMode.PercentOutput, output);
   }
 
